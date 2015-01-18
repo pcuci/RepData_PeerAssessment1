@@ -29,7 +29,7 @@ steps <- tapply(activity$steps, activity$date, sum)
 
 Here is a histogram of the total number of steps taken each day
 ```{r hist}
-hist(steps)
+hist(steps, breaks = 20)
 ```
 
 ```{r meanmedian}
@@ -133,7 +133,7 @@ filledActivity$daytype <- ifelse(filledActivity$daytype %in% c("Saturday", "Sund
 ### Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
 
 ```{r intavg}
-intervalAvg <- ddply(filledActivity, .(interval, daytype), summarise, steps=mean(steps))
+intervalAvg <- ddply(filledActivity, .(interval, daytype), summarise, steps = mean(steps))
 ```
 
 ```{r dayendplot}
